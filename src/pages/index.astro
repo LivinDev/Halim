@@ -1,8 +1,20 @@
+---
+import { Image } from "astro:assets";
+import ProfileImage from "../assets/halim.png";
+---
+
 <header>
   <div class="container">
-    <h1>Md. Halim (Bhola ji)</h1>
-    <p>District General Secretary, Darbhanga (JDU)</p>
-    <p>Over 35 years of dedicated public service</p>
+    <Image
+      src={ProfileImage}
+      alt="Md. Halim (Bhola ji)"
+      class="profile-image"
+    />
+    <div class="header-text">
+      <h1>Md. Halim (Bhola ji)</h1>
+      <p>District General Secretary, Darbhanga (JDU)</p>
+      <p>Over 35 years of dedicated public service</p>
+    </div>
   </div>
 </header>
 
@@ -82,7 +94,6 @@
 </footer>
 
 <style>
-  /* General Styles */
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -105,6 +116,17 @@
     text-align: center;
   }
 
+  .profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .header-text {
+    margin-top: 20px;
+  }
+
   h1 {
     margin: 0;
     font-size: 2.5em;
@@ -119,7 +141,6 @@
     margin-bottom: 20px;
   }
 
-  /* Section Styles */
   section {
     padding: 40px 0;
   }
@@ -129,7 +150,6 @@
     margin-bottom: 30px;
   }
 
-  /* Footer Styles */
   footer {
     background-color: #333;
     color: white;
@@ -138,7 +158,6 @@
     font-size: 0.9em;
   }
 
-  /* Responsive Design */
   @media (max-width: 768px) {
     h1 {
       font-size: 2em;
