@@ -1,0 +1,209 @@
+---
+import { Image } from "astro:assets";
+import ProfileImage from "../assets/halim.png";
+import Card from "../components/Card.astro";
+import Covid from "../assets/covid.jpg";
+import Blanket from "../assets/blanket.jpg";
+import Layout from "../layouts/Layout.astro";
+import Contact from "./Contact.astro";
+---
+
+<Layout title="Halim">
+  <header>
+    <div class="container">
+      <Image
+        src={ProfileImage}
+        alt="Md. Halim (Bhola ji)"
+        class="profile-image"
+      />
+      <div class="header-text">
+        <h1>Md. Halim (Bhola ji)</h1>
+        <p>District General Secretary, Darbhanga (JDU)</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="introduction">
+    <div class="container">
+      <h2>Introduction</h2>
+      <p>
+        Md. Halim (Bhola ji) is a respected leader with over 35 years of
+        experience...
+      </p>
+    </div>
+  </section>
+
+  <section id="professional-journey">
+    <div class="container">
+      <h2>Professional Journey</h2>
+      <div class="journey-item">
+        <h3>District General Secretary in RJD (Rashtriya Janata Dal)</h3>
+        <p>
+          For 20 years, you served as the District General Secretary of the
+          Rashtriya Janata Dal (RJD). In this role, you managed party
+          activities, organized political campaigns, and strengthened the
+          party's grassroots presence. You were responsible for building
+          community relationships, mentoring new members, and ensuring the
+          party's policies resonated with local constituents.
+        </p>
+      </div>
+      <div class="journey-item">
+        <h3>JDU (Janata Dal United)</h3>
+        <p>
+          Currently, you are working with the Janata Dal United (JDU), where you
+          have been active for less than 15 years. Your role involves
+          strategizing for local elections, engaging with the community, and
+          driving social welfare initiatives. You focus on enhancing the party’s
+          outreach and addressing the needs of the people in your district.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="community-service">
+    <div class="container">
+      <h2>Community Service</h2>
+      <div class="card-section">
+        <Card
+          title="Grain Distribution During Covid-19"
+          cardImage={Covid}
+          description="During the Covid-19 pandemic, when the entire world was facing unprecedented challenges, many people, especially the poor and daily wage workers, were struggling to secure basic necessities. Recognizing this dire need, a community effort was organized to distribute grains to the poor. This initiative ensured that vulnerable families had access to essential food supplies, helping them sustain themselves during the lockdown period. The distribution was conducted in various locations, maintaining social distancing norms and safety protocols. The grains distributed included rice, wheat."
+        />
+        <Card
+          title="Blanket Distribution During Cold Season"
+          cardImage={Blanket}
+          description="As the cold season approached, many underprivileged families were faced with the harsh reality of enduring freezing temperatures without adequate protection. To alleviate their suffering, blankets were distributed to the poor and homeless. This effort was particularly targeted at those living in makeshift shelters, street dwellers, and families residing in inadequate housing without proper insulation. The blankets provided a layer of warmth and comfort, protecting them from the severe cold and reducing the risk of hypothermia and other cold-related illnesses."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="
+          vision-goals">
+    <div class="container">
+      <h2>Vision and Goals</h2>
+      <p>Md. Halim envisions a prosperous and inclusive Darbhanga...</p>
+    </div>
+  </section>
+
+  <!-- <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Feel free to reach out for any community-related concerns.</p>
+
+      <p>Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+    </div>
+  </section> -->
+  <Contact
+    title="Contact"
+    description="Feel free to reach out for any community-related concerns."
+  />
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Md. Halim (Bhola ji). All Rights Reserved.</p>
+    </div>
+  </footer>
+</Layout>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  header {
+    background-color: #0056b3;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-text {
+    margin-top: 20px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .subtitle {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+  .card-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  h2 {
+    color: #0056b3;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+
+  .journey-item,
+  .service-item {
+    margin-bottom: 30px;
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+  }
+  @media (max-width: 480px) {
+    .card-section {
+      flex-direction: column;
+      width: 100%;
+    }
+    .profile-image {
+      width: 250px;
+      height: 250px;
+    }
+  }
+</style>

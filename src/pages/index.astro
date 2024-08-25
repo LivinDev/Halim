@@ -1,196 +1,65 @@
 ---
-import { Image } from "astro:assets";
-import ProfileImage from "../assets/halim.png";
+import Layout from "../layouts/Layout.astro";
+import EnglishVersion from "../components/EnglishVersion.astro";
+import HindiVersion from "../components/HindiVersion.astro";
 ---
 
-<header>
-  <div class="container">
-    <Image
-      src={ProfileImage}
-      alt="Md. Halim (Bhola ji)"
-      class="profile-image"
-    />
-    <div class="header-text">
-      <h1>Md. Halim (Bhola ji)</h1>
-      <p>District General Secretary, Darbhanga (JDU)</p>
-      <p>Over 35 years of dedicated public service</p>
-    </div>
+<Layout title="Halim">
+  <!-- Toggle Button -->
+  <button id="toggleButton">Switch to Hindi</button>
+
+  <!-- Components to toggle -->
+  <div id="englishContent">
+    <EnglishVersion />
   </div>
-</header>
 
-<section id="introduction">
-  <div class="container">
-    <h2>Introduction</h2>
-    <p>
-      Md. Halim (Bhola ji) is a respected leader with over 35 years of
-      experience...
-    </p>
+  <div id="hindiContent" style="display: none;">
+    <HindiVersion />
   </div>
-</section>
 
-<section id="professional-journey">
-  <div class="container">
-    <h2>Professional Journey</h2>
-    <div class="journey-item">
-      <h3>RJD (20 Years)</h3>
-      <p>
-        Md. Halim dedicated two decades to the Rashtriya Janata Dal (RJD)...
-      </p>
-    </div>
-    <div class="journey-item">
-      <h3>JDU (15 Years)</h3>
-      <p>
-        For the past 15 years, he has been a key figure in the Janata Dal
-        (United) [JDU]...
-      </p>
-    </div>
-  </div>
-</section>
+  <!-- Client-side JavaScript to handle the toggle -->
+  <script is:inline>
+    const button = document.getElementById("toggleButton");
+    const englishContent = document.getElementById("englishContent");
+    const hindiContent = document.getElementById("hindiContent");
 
-<section id="community-service">
-  <div class="container">
-    <h2>Community Service</h2>
-    <div class="service-item">
-      <h3>Covid-19 Relief Efforts</h3>
-      <p>
-        During the challenging times of Covid-19, Md. Halim led initiatives...
-      </p>
-    </div>
-    <div class="service-item">
-      <h3>Winter Relief Programs</h3>
-      <p>
-        Understanding the harshness of winter, he organized the distribution of
-        blankets...
-      </p>
-    </div>
-  </div>
-</section>
+    // Initial state
+    let isEnglish = true;
 
-<section id="vision-goals">
-  <div class="container">
-    <h2>Vision and Goals</h2>
-    <p>Md. Halim envisions a prosperous and inclusive Darbhanga...</p>
-  </div>
-</section>
+    button.addEventListener("click", () => {
+      isEnglish = !isEnglish;
 
-<section id="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <p>
-      Feel free to reach out for any community-related concerns or to
-      collaborate...
-    </p>
-    <p>
-      Email: <a href="mailto:example@example.com">example@example.com</a>
-    </p>
-    <p>Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
-  </div>
-</section>
+      // Toggle visibility
+      if (isEnglish) {
+        englishContent.style.display = "block";
+        hindiContent.style.display = "none";
+        button.textContent = "Switch to Hindi";
+      } else {
+        englishContent.style.display = "none";
+        hindiContent.style.display = "block";
+        button.textContent = "Switch to English";
+      }
+    });
+  </script>
 
-<footer>
-  <div class="container">
-    <p>&copy; 2024 Md. Halim (Bhola ji). All Rights Reserved.</p>
-  </div>
-</footer>
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  header {
-    background-color: #0056b3;
-    color: white;
-    padding: 60px 0;
-    text-align: center;
-  }
-
-  .profile-image {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
-
-  .header-text {
-    margin-top: 20px;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 2.5em;
-  }
-
-  h2 {
-    color: #0056b3;
-    margin-bottom: 20px;
-  }
-
-  p {
-    margin-bottom: 20px;
-  }
-
-  section {
-    padding: 40px 0;
-  }
-
-  .journey-item,
-  .service-item {
-    margin-bottom: 30px;
-  }
-
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2em;
+  <style>
+    #toggleButton {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      z-index: 100;
     }
 
-    h2 {
-      font-size: 1.5em;
+    #toggleButton:hover {
+      background-color: #003d82;
     }
-
-    .container {
-      padding: 10px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.8em;
-    }
-
-    h2 {
-      font-size: 1.2em;
-    }
-
-    header {
-      padding: 40px 0;
-    }
-
-    section {
-      padding: 20px 0;
-    }
-
-    footer {
-      font-size: 0.8em;
-    }
-  }
-</style>
+  </style>
+</Layout>
